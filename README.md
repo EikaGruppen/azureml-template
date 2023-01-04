@@ -112,7 +112,7 @@ To invoke the endpoint run `python invoke_with_rest.py --uri ${rest_endpoint} --
 
 ## Additonal resources
 
-In addition to the [blog post](oyvind.dev) that goes along with this repository, I found the following websites very helpful when piecing all this stuff together:
+In addition to the [blog post](https://oyvind.dev/blog/getting-started-with-azure-ml-and-the-python-sdk/) that goes along with this repository, I found the following websites very helpful when piecing all this stuff together:
 
 * [Documentation for Azure ML SDK v2](https://learn.microsoft.com/nb-no/python/api/overview/azure/ai-ml-readme?view=azure-python)
 * [Azure ML SDK v2 Examples](https://github.com/Azure/azureml-examples/tree/main/sdk/python)
