@@ -1,0 +1,8 @@
+data/
+!data/.gitkeep
+.env
+*.tfstate
+*.tfstate.backup
+*.terraform.lock.hcl
+.terraform/
+config.json

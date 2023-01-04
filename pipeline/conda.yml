@@ -1,0 +1,16 @@
+name: template_environment
+channels:
+  - anaconda
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pandas
+  - matplotlib
+  - seaborn
+  - pip
+  - statsmodels
+  - pyarrow
+  - scikit-learn
+  - mlflow
+  - pip:
+      - azureml-mlflow

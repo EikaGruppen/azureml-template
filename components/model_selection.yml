@@ -1,0 +1,25 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: model_selection
+display_name: Model selection
+description: Do a parameter search and evaluate the performance of the resulting models
+version: 0.0.1
+inputs: 
+  train_input_path:
+    type: uri_file
+  C:
+    type: number
+outputs:
+  model_output_path:
+    type: mlflow_model
+  params_output_path:
+    type: uri_file
+code: ../pipeline/model_selection_src
+environment: azureml:template_environment@latest
+command: >-
+  python model_selection.py 
+  --train_input_path ${{inputs.train_input_path}}
+  --C ${{inputs.C}}
+  --model_output_path ${{outputs.model_output_path}}
+  --params_output_path ${{outputs.params_output_path}}

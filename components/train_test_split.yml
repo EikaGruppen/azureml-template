@@ -1,0 +1,30 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandComponent.schema.json
+type: command
+
+name: train_test_split
+display_name: Split into train and test set
+description: Split into train and test set and assign train set to folds
+version: 0.0.1
+inputs: 
+  dataset_input_path:
+    type: uri_file
+  train_size:
+    type: number
+    default: 0.8
+  num_folds: 
+    type: integer
+    default: 3
+outputs:
+  train_output_path:
+    type: uri_file
+  test_output_path:
+    type: uri_file
+code: ../pipeline/train_test_split_src
+environment: azureml:template_environment@latest
+command: >-
+  python train_test_split.py 
+  --dataset_input_path ${{inputs.dataset_input_path}}
+  --train_size ${{inputs.train_size}}
+  --num_folds ${{inputs.num_folds}}
+  --train_output_path ${{outputs.train_output_path}}
+  --test_output_path $${{outputs.test_output_path}}

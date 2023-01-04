@@ -1,0 +1,15 @@
+name: deployment_environment
+channels:
+  - anaconda
+  - conda-forge
+dependencies:
+  - python=3.9
+  - pip
+  - pandas
+  - pyarrow
+  - scikit-learn
+  - mlflow
+  - pip:
+      - azureml-mlflow
+      - azureml-core
+      - azureml-dataset-runtime[fuse]
