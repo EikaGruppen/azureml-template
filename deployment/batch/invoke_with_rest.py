@@ -10,23 +10,21 @@ parser.add_argument("--token", type=str, help="The authentication token")
 
 args = parser.parse_args()
 
-scoring_data_path = f"azureml://datastores/workspaceblobstore/paths//template_data/scoring/"
-output_data_path = f"azureml://datastores/workspaceblobstore/paths/template_data/deployment/output/"
+scoring_data_path = (
+    f"azureml://datastores/workspaceblobstore/paths//template_data/scoring/"
+)
+output_data_path = (
+    f"azureml://datastores/workspaceblobstore/paths/template_data/deployment/output/"
+)
 
 payload = {
-    "properties" : {
+    "properties": {
         "InputData": {
-            "templateInput" : {
-                "JobInputType" : "UriFolder",
-                "Uri" : scoring_data_path
-            }
+            "templateInput": {"JobInputType": "UriFolder", "Uri": scoring_data_path}
         },
         "OutputData": {
-            "templateOutput" : {
-                "JobOutputType" : "UriFile",
-                "Uri" : output_data_path
-            }
-        }
+            "templateOutput": {"JobOutputType": "UriFile", "Uri": output_data_path}
+        },
     }
 }
 
@@ -35,13 +33,9 @@ print(payload)
 headers = {
     "Authorization": f"Bearer {args.token}",
     "Content-Type": "application/json",
-    "azureml-model-deployment" : "template-batch-deployment"
+    "azureml-model-deployment": "template-batch-deployment",
 }
 
-response = requests.post(
-    url = args.uri,
-    json = payload,
-    headers = headers
-)
+response = requests.post(url=args.uri, json=payload, headers=headers)
 
 print(response.content)

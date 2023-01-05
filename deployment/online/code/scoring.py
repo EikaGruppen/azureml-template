@@ -5,11 +5,13 @@ import numpy
 from pathlib import Path
 import mlflow
 
+
 def init():
     global model
     model_path = Path(os.environ["AZUREML_MODEL_DIR"], "model")
     model = mlflow.sklearn.load_model(model_path)
     logging.info("Init complete")
+
 
 def run(raw_data):
     logging.info("Request received")

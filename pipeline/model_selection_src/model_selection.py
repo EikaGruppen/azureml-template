@@ -11,7 +11,9 @@ parser = argparse.ArgumentParser("model_selection")
 parser.add_argument("--train_input_path", type=str, help="Input path of the train set")
 parser.add_argument("--C", type=float, help="C")
 parser.add_argument("--model_output_path", type=str, help="Output path of the model")
-parser.add_argument("--params_output_path", type=str, help="Output path for the parameters used")
+parser.add_argument(
+    "--params_output_path", type=str, help="Output path for the parameters used"
+)
 
 args = parser.parse_args()
 
@@ -28,7 +30,7 @@ for fold_key in train_dat.fold.unique():
     train_X = train_folds.to_numpy()
     val_X = val_fold.to_numpy()
 
-    lr = LogisticRegression(C=args.C, penalty = "l2", multi_class="multinomial")
+    lr = LogisticRegression(C=args.C, penalty="l2", multi_class="multinomial")
     lr.fit(X=train_X, y=train_y)
     y_pred = lr.predict(val_X)
 
@@ -42,12 +44,3 @@ mlflow.sklearn.save_model(lr, args.model_output_path)
 params = {"C": args.C}
 with Path(args.params_output_path).open(mode="w") as f:
     json.dump(params, f)
-
-
-
-
-
-
-
-
-

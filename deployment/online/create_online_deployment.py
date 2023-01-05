@@ -13,15 +13,14 @@ import os
 load_dotenv(Path("..", "..", ".env"))
 
 ml_client = MLClient.from_config(
-    credential = AzureCliCredential(),
-    file_name = str(Path("..", "..", "config.json"))
-    )
+    credential=AzureCliCredential(), file_name=str(Path("..", "..", "config.json"))
+)
 
 model = ml_client.models.get(name="template_model", label="latest")
 
 environment = Environment(
-    image = "mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04",
-    conda_file=str(Path("conda.yml").resolve())
+    image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04",
+    conda_file=str(Path("conda.yml").resolve()),
 )
 
 online_deployment = ManagedOnlineDeployment(

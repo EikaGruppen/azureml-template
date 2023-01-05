@@ -18,10 +18,14 @@ try:
 except ResourceExistsError as e:
     container_client = blob_service_client.get_container_client(container_name)
 
-blob_client = container_client.get_blob_client(blob=str(Path("template_data", "training", training_data_path.name)))
+blob_client = container_client.get_blob_client(
+    blob=str(Path("template_data", "training", training_data_path.name))
+)
 with training_data_path.open(mode="rb") as data:
     blob_client.upload_blob(data, overwrite=True)
 
-blob_client = container_client.get_blob_client(blob=str(Path("template_data", "scoring", scoring_data_path.name)))
+blob_client = container_client.get_blob_client(
+    blob=str(Path("template_data", "scoring", scoring_data_path.name))
+)
 with scoring_data_path.open(mode="rb") as data:
     blob_client.upload_blob(data, overwrite=True)

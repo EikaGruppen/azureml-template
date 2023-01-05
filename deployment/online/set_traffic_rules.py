@@ -8,9 +8,8 @@ import os
 load_dotenv(Path("..", "..", ".env"))
 
 ml_client = MLClient.from_config(
-    credential = AzureCliCredential(),
-    file_name = str(Path("..", "..", "config.json"))
-    )
+    credential=AzureCliCredential(), file_name=str(Path("..", "..", "config.json"))
+)
 
 endpoint = ml_client.online_endpoints.get(os.getenv("ONLINE_ENDPOINT_NAME"))
 
