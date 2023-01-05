@@ -8,7 +8,7 @@ This repository contains an Azure ML template project built using the Python SDK
 
 We also show you how to provision the required infrastructure using Terraform. The purpose of this is to make it so the template project is easy to set up and run even without much experience with Azure. 
 
-Please be aware that this is not an "Azure ML Tutorial". The purpose here is to provide a template project that could serve as a starting point for new Azure ML projects. The template project is fully functional though, so it can also serve as an example of how the various pieces of functionality fit together. Most of this is already covered in Microsofts own documentation, but there's very few (if any) end-to-end projects like this. Microsofts documentation and examples mostly covers individual pieces of functionality, and this makes it hard to get a sense of how things can look when combined.  The README will cover how to set up and run the template project, but if you're interested in a more in-depth exploration of what is going on you should check out the [blog post](https://oyvind.dev/blog/getting-started-with-azure-ml-and-the-python-sdk/) I've written on it.
+Please be aware that this is not an "Azure ML Tutorial". The purpose here is to provide a template project that could serve as a starting point for new Azure ML projects. The template project is fully functional though, so it can also serve as an example of how the various pieces of functionality fit together. Most of this is already covered in Microsofts own documentation, but there's very few (if any) end-to-end projects like this. Microsofts documentation and examples mostly covers individual pieces of functionality, and this makes it hard to get a sense of how things can look when combined.  The README will cover how to set up and run the template project, but if you're interested in a more in-depth exploration of what is going on you should check out [this blog post](https://medium.com/eika-tech/getting-started-with-the-azure-ml-python-sdk-v2-b9899db7d9a7).
 
 ## Provisioning
 
@@ -112,7 +112,7 @@ To invoke the endpoint run `python invoke_with_rest.py --uri ${rest_endpoint} --
 
 ## Additonal resources
 
-I found the following websites very helpful when piecing all this stuff together:
+The following websites were very helpful when piecing all this stuff together:
 
 * [Documentation for Azure ML SDK v2](https://learn.microsoft.com/nb-no/python/api/overview/azure/ai-ml-readme?view=azure-python)
 * [Azure ML SDK v2 Examples](https://github.com/Azure/azureml-examples/tree/main/sdk/python)
